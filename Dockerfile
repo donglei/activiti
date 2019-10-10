@@ -23,6 +23,7 @@ RUN mv /tmp/activiti-${ACTIVITI_VERSION}.zip  /tmp/activiti.zip && \
  	unzip /tmp/activiti.zip -d /opt/activiti && \
 	unzip /opt/activiti/activiti-${ACTIVITI_VERSION}/wars/activiti-app.war -d /opt/tomcat/webapps/activiti-app && \
 	unzip /opt/activiti/activiti-${ACTIVITI_VERSION}/wars/activiti-rest.war -d /opt/tomcat/webapps/activiti-rest && \
+	unzip /opt/activiti/activiti-${ACTIVITI_VERSION}/wars/activiti-admin.war -d /opt/tomcat/webapps/activiti-admin && \
 	rm -f /tmp/activiti.zip
 
 # Add mysql connector to application
@@ -30,6 +31,7 @@ RUN mv /tmp/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}.zip  /tmp/mysql
 	unzip /tmp/mysql-connector-java.zip -d /tmp && \
 	cp /tmp/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}.jar /opt/tomcat/webapps/activiti-rest/WEB-INF/lib/ && \
 	cp /tmp/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}.jar /opt/tomcat/webapps/activiti-app/WEB-INF/lib/ && \
+	cp /tmp/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}.jar /opt/tomcat/webapps/activiti-admin/WEB-INF/lib/ && \
 	rm -rf /tmp/mysql-connector-java.zip /tmp/mysql-connector-java-${MYSQL_CONNECTOR_JAVA_VERSION}
 
 # Add roles
